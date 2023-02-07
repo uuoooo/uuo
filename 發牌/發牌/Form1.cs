@@ -95,6 +95,7 @@ namespace 發牌
 
             }
 
+
             int[] b = new int[52];
             Random r = new Random();
 
