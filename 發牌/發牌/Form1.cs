@@ -88,6 +88,7 @@ namespace 發牌
 
             List<int> poke = new List<int>();
             
+
             for (int i = 1; i <= 52; i++)
             {
                 poke.Add(i);
