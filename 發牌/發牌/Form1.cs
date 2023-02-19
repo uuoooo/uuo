@@ -75,9 +75,9 @@ namespace 發牌
         }
 
         public List<int> poke = new List<int>();
+        private int c;
 
-
-    private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             //順序數字
             //List<int> poke = new List<int>();
@@ -101,20 +101,36 @@ namespace 發牌
 
             for (int i = 0; i <=51; i++)
             {
-                b[i] = r.Next(1, 52);
+                b[i] = r.Next(1, 53);
                 //撲克牌兩個位置進行交換
-                for (int j = 1; j < i; j++)
+                for (int j = 0; j < i; j++)
                 {
                     while (b[j] == b[i])    //檢查是否與前面產生的數值發生重複，如果有就重新產生
                     {
-                        j = 1;  //如有重複，將變數j設為0，再次檢查 (因為還是有重複的可能)
-                        b[i] = r.Next(1, 52);   //重新產生，存回陣列，亂數產生的範圍是1~9
+                        j = 0;  //如有重複，將變數j設為0，再次檢查 (因為還是有重複的可能)
+                        b[i] = r.Next(1, 53);   //重新產生，存回陣列，亂數產生的範圍是1~9
                     }
                 }
 
             }
 
-            b = b.Distinct().ToArray();
+            var  bt = b.Distinct().ToArray();
+
+            var only = b.GroupBy(x => x).Where(x => x.Count() > 1).SelectMany(x => x).ToList();
+
+
+            var test = b.OrderBy(x => x).ToList();
+
+
+            int[] a= new int[20];
+            Random random= new Random();
+            for (int i = 0; i < 2; i++)
+            {
+                a[i]= random.Next(1,3);
+            }
+
+           
+
 
             //我這邊需要一個int的陣列來塞入我要的數值
             //所以來個
