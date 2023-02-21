@@ -119,7 +119,7 @@ namespace 發牌
             //{
             //    a[i]= random.Next(1,3);
             //} 測試random臨界值
-        }
+        } 
 
         private void button2_Click(object sender, EventArgs e)
         {
